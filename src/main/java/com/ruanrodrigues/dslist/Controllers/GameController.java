@@ -1,0 +1,26 @@
+package com.ruanrodrigues.dslist.Controllers;
+
+import com.ruanrodrigues.dslist.DTO.GameMinDto;
+import com.ruanrodrigues.dslist.Entities.Game;
+import com.ruanrodrigues.dslist.Services.GameService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(path = "/games")
+public class GameController {
+    @Autowired
+    private GameService gameService;
+
+    public GameController() {}
+
+    @GetMapping()
+    public List<GameMinDto> findAllGames() {
+        List<Game> games = this.gameService.findAll();
+        return games.stream().map(x -> new GameMinDto(x)).toList();
+    }
+}

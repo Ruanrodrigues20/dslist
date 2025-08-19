@@ -1,22 +1,29 @@
 package com.ruanrodrigues.dslist.Entities;
 
-import jakarta.persistence.*;
+import java.util.Objects;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.mapping.PrimaryKey;
 
-
-@Entity(name = "Game")
+@Entity
+@Table(name = "Game")
 @Getter
 @Setter
 public class Game {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
     private Long id;
-
-    @Column
     private String title;
+
+    @Column(name = "game_year")
+    private Integer year;
 
     @Column
     private String genre;
@@ -25,14 +32,17 @@ public class Game {
     private String platforms;
 
     @Column
-    private String shortDescription;
-
-    @Column
-    private String longDescription;
+    private Double score;
 
     @Column
     private String imgUrl;
 
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
 
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
 
+    public Game() {
+    }
 }
