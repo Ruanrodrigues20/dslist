@@ -2,6 +2,7 @@ package com.ruanrodrigues.dslist.DTO;
 
 
 import com.ruanrodrigues.dslist.Entities.Game;
+import com.ruanrodrigues.dslist.projections.GameMinProjection;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +24,13 @@ public class GameMinDto {
         this.shortDescription = entity.getShortDescription();
         this.imgUrl = entity.getImgUrl();
         this.year = entity.getYear();
+    }
+
+    public GameMinDto(GameMinProjection gameMinProjection) {
+        this.id = gameMinProjection.getId();
+        this.title = gameMinProjection.getTitle();
+        this.shortDescription = gameMinProjection.getShortDescription();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.year = gameMinProjection.getYear();
     }
 }
