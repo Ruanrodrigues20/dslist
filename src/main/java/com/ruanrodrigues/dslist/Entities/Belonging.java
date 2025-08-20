@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_beloging")
+@Table(name = "tb_belonging")
 @Getter
 @Setter
 public class Belonging {
