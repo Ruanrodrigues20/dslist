@@ -13,7 +13,7 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
     @Query(nativeQuery = true, value = """
 
-        SELECT G.id, G.title, G.game_year AS `year`, G.img_url AS imgUrl,
+        SELECT G.id, G.title, G.game_year AS year, G.img_url AS imgUrl,
         G.short_description AS shortDescription, B.position
         FROM Game G
         INNER JOIN tb_belonging B ON G.id = B.game_id
